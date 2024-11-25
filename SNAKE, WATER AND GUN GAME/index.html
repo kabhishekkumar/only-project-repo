@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GAME</title>
+  </head>
+  <body>
+    <h1>Snake, Water and Gun Game</h1>
+
+    <button
+      onclick="
+     let computerChoice = generateComputerChoice();
+     let winner = getResult('Snake', computerChoice);
+    
+     alert(`user choice is Snake \n computer choice is ${computerChoice} \n this match is won by ${winner}`);
+    
+     " > Snake</button>
+
+    <button
+      onclick="
+    computerChoice = generateComputerChoice();
+      winner = getResult('Water', computerChoice);
+    
+     alert(`user choice is Water \n computer choice is ${computerChoice} \n this match is won by ${winner} `);
+   "
+    >Water</button>
+
+    <button
+      onclick="
+    computerChoice = generateComputerChoice();
+      winner = getResult('Gun', computerChoice);
+    
+     alert(`user choice is Gun \n computer choice is ${computerChoice} \n this match is won by `);    "
+    > Gun</button>
+
+    <script>
+      function generateComputerChoice(){
+        let randomN = Math.random()*3;
+      if(randomN >0 && randomN<= 1){
+         computerChoice = "Snake";
+      }
+
+      else if( randomN > 1 && randomN<= 2){
+          computerChoice = "Water";
+      }
+      else{
+          computerChoice = "Gun";
+      }
+
+      return computerChoice;
+
+      }
+
+      function getResult(userMove, computerMove){
+          if(userMove === 'Snake'){
+            if(computerMove === 'Snake'){
+              return "match is tie";
+            }
+            else if(computerMove === 'Water'){
+              return  "user won";
+            }
+            else{
+              return "Computer is won"
+            }
+          }
+
+          else if(userMove === 'Water'){
+            if(computerMove === 'Water'){
+              return "match is tie";
+            }
+            else if(computerMove === 'Snake'){
+              return "computer won";
+            }
+            else{
+              return "user won";
+            }
+          }
+
+          else{
+            if(computerMove === 'Gun'){
+              return "match is tie";
+            }
+            else if( computerMove === 'Water'){
+              return "computer is won";
+            }
+            else{
+              return "user is won";
+            }
+          }
+         
+      } 
+    </script>
+  </body>
+</html>
